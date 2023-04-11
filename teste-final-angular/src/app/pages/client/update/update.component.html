@@ -1,0 +1,63 @@
+
+<div class="container-fluid">
+
+  <h2 class="text-center">Alterar dados do usuario {{clienteForm.value.cpf}}</h2>
+  <hr>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="editar()" >
+
+    <h5>Dados pessoais</h5>
+    <div class="row">
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input id="nome" placeholder="Digite o nome"  type="text" class="form-control" formControlName = "nome"  >
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="telefone" placeholder="Digite apenas numeros" class="form-label">Telefone</label>
+          <input id="telefone" placeholder="Digite apenas numeros" type="text" class="form-control" formControlName = "telefone" pattern="[0-9]+$">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <h5>Endereço</h5>
+    <div class="row" formGroupName="endereco">
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="cep" class="form-label">CEP</label>
+          <input id="cep" placeholder="Digite apenas numeros"  type="text" class="form-control" formControlName = "cep" pattern="[0-9]+$">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="mb-3">
+          <label for="rua" class="form-label">Rua</label>
+          <input id="rua" placeholder="Digite o nome da rua"  type="text" class="form-control" formControlName = "rua" >
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="mb-3">
+          <label for="numero" class="form-label">Numero</label>
+          <input id="numero" placeholder="Digite apenas numeros"  type="number" class="form-control" formControlName="numero" min="0" pattern="[0-9]+$">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <h5>Renda</h5>
+    <div class="row">
+      <div class="col-3">
+        <div class="mb-3">
+          <label for="rendimentoMensal" class="form-label">Rendimento mensal</label>
+          <input id="rendimentoMensal" placeholder="Digite apenas numeros"  type="number" class="form-control" formControlName = "rendimentoMensal" min="0" pattern="[0-9]+$">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!clienteForm.valid" class="btn btn-primary">Alterar</button>
+
+  </form>
+</div>
+
